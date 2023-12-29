@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  background-image: var(--bg-top-image);
+  background-size: 100%;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-color: var(--main-bg);
+  padding-bottom: 2rem;
+}
+
+.darkTheme {
+  --bg-top-image: url(./images/bg-desktop-dark.jpg);
+  --bg-mobile-top-image: url(./images/bg-mobile-dark.jpg);
+  --main-bg: hsl(235, 21%, 11%);
+  --todo-bg: hsl(235, 24%, 19%);
+  --todo-shadow: hsl(235, 21%, 11%);
+  --font-color: hsl(234, 39%, 85%);
+  --border-color: hsl(233, 14%, 35%);
+  --icon-image: url(./images/icon-sun.svg);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 32px;
+}
+
+.lightTheme {
+  --bg-top-image: url(./images/bg-desktop-light.jpg);
+  --bg-mobile-top-image: url(./images/bg-mobile-light.jpg);
+  --main-bg: hsl(0, 0%, 98%);
+  --todo-bg: #fff;
+  --todo-shadow: hsl(235, 19%, 35%);
+  --font-color: hsl(235, 19%, 35%);
+  --border-color: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Light-Grayish-Blue-hover: hsl(236, 9%, 40%);
+  --icon-image: url(./images/icon-moon.svg);
+  --box-shadow: #e9e9e9 0px 30px 32px;
+}
+
+.app {
+  width: 503px;
+  padding-top: 72px;
+}
+
+.app__head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 37px;
+}
+
+.heading {
+  font-size: 37px;
+  letter-spacing: 14px;
+  color: white;
+}
+
+.sun-icon {
+  background: var(--icon-image) no-repeat;
+  background-size: contain;
+  width: 24px;
+  background-position-y: 3px;
+  border: transparent;
+  cursor: pointer;
+}
+
+.input-container {
+  position: relative;
+  padding: 22px 20px;
+  background-color: var(--todo-bg);
+  border-radius: 6px;
+  margin-bottom: 22px;
+}
+
+.input {
+  width: 100%;
+  padding-left: 47px;
+  font-size: 17px;
+  font-family: inherit;
+  letter-spacing: -0.2px;
+  caret-color: hsl(220, 98%, 61%);
+  color: var(--font-color);
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.input::placeholder {
+  color: var(--border-color);
+}
+
+.input-container:before {
+  content: '';
+  position: absolute;
+  left: 21px;
+  top: 18px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+}
+
+.todos {
+  border-radius: 6px;
+  background-color: var(--todo-bg);
+  box-shadow: var(--box-shadow);
+}
+
+.list-container {
+  list-style-type: none;
+}
+
+/* ckeckbox */
+
+.checkbox {
+  display: flex;
+  padding: 20px 20px 18px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.checkbox__default {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  appearance: none;
+}
+
+.checkbox__custom {
+  display: inline-block;
+  position: relative;
+}
+
+.checkbox__custom:before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  top: -4px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+}
+
+.checkbox__custom:hover:before {
+  border: 1px solid hsl(220, 98%, 61%);
+}
+
+.checkbox__input {
+  width: 100%;
+  padding-left: 47px;
+  background-color: transparent;
+  font-size: 17px;
+  font-family: inherit;
+  border: none;
+  letter-spacing: -0.2px;
+  caret-color: hsl(220, 98%, 61%);
+  color: var(--font-color);
+  outline: none;
+  cursor: grab;
+}
+
+.checkbox__default:checked + .checkbox__custom::before {
+  background: 
+    url(../../../../images/icon-check.svg) 
+      no-repeat center center,
+    linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 
+      no-repeat center center;
+}
+
+.crossOut {
+  text-decoration: line-through;
+  color: var(--border-color);
+}
+
+.btn__delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn__delete svg path {
+  fill: var(--todo-bg);
+}
+
+.checkbox__input:hover + .btn__delete svg path,
+.btn__delete:hover svg path {
+  fill: var(--Dark-Grayish-Blue);
+  transition: fill .3s;
+}
+
+
+/* status bar */
+
+.status-bar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px 14px;
+  font-size: 15px;
+  letter-spacing: -0.8px;
+  color: var(--Dark-Grayish-Blue);
+}
+
+.status-bar > span {
+  padding-right: 42px;
+}
+
+.status-bar__nav {
+  display: flex;
+  gap: 18px;
+}
+
+.status-bar__btn,
+.status-bar__btn-clear {
+  font-weight: bold;
+  border: none;
+  background-color: inherit;
+  color: var(--Dark-Grayish-Blue);
+  cursor: pointer;
+}
+
+.status-bar__btn:hover,
+.status-bar__btn-clear:hover {
+  color: var(--Light-Grayish-Blue-hover);
+  transition: color .3s;
+}
+
+.status-bar__btn:focus {
+  color: hsl(220, 98%, 61%);
+}
+
+.status-bar__btn-clear {
+  font-weight: normal;
+}
+
+.status-bar__btn-clear:active {
+  color: hsl(220, 98%, 61%);
+  transition: color 0s;
+}
+
+.hint {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--Dark-Grayish-Blue);
+}
+
+.attribution {
+  margin-top: 100px;
+  font-size: 11px; 
+  text-align: center;
+  color: hsl(234deg 11% 52% / 43%); 
+  text-decoration: none;
+}
+
+.attribution a { 
+  text-decoration: none;
+  color: hsl(234deg 11% 52% / 43%); 
+}
+
+.attribution a:hover {
+  color: hsl(220, 98%, 61%);
+}
+
+@media (max-width: 550px) {
+
+  .root {
+    background-image: var(--bg-mobile-top-image);
+  }
+
+  .app {
+    width: 305px;
+    padding-top: 44px;
+  }
+
+  .app__head {
+    margin-bottom: 32px;
+  }
+
+  .heading {
+    font-size: 24px;
+    letter-spacing: 10px;
+  }
+
+  .sun-icon {
+    width: 18px;
+    background-position-y: 0;
+  }
+
+  .input-container {
+    padding: 14px;
+    margin-bottom: 15px;
+  }
+
+  .input-container:before {
+    left: 19px;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .input,
+  .checkbox__input {
+    padding-left: 36px;
+    font-size: 11px;
+  }
+
+  .checkbox,
+  .status-bar {
+    padding: 14px;
+  }
+
+  .checkbox__custom:before {
+    width: 16px;
+    height: 16px;
+    left: 5px;
+    top: 1px;
+  }
+
+  .status-bar {
+    padding: 12px 18px 17px;
+  }
+
+  .status-bar > span {
+    font-size: 13px;
+  }
+
+  .status-bar__btn-clear {
+    font-size: 11px;
+  }
+
+  .status-bar__nav {
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    gap: 15px;
+    bottom: -59px;
+    padding: 14px;
+    border-radius: 6px;
+    background-color: var(--todo-bg);  
+    box-shadow: var(--box-shadow); 
+  }
+
+  .hint {
+    margin-top: 101px;
+  }
+
+}
