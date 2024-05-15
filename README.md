@@ -31,12 +31,16 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
+![active-states-dark](screenshots/active-states-dark.jpg)
+![active-states-ligh](screenshots/active-states-light.jpg)
+![desktop-design-dark](screenshots/desktop-design-dark.jpg)
+![desktop-design-light](screenshots/desktop-design-light.jpg)
+![mobile-design-dark](screenshots/mobile-design-dark.jpg)
+![mobile-design-light](screenshots/mobile-design-light.jpg)
 ### Links
 
-- Solution URL: [https://www.frontendmentor.io/solutions/simple-and-convenient-todo-list-react-js-M6estrBP2L]()
-- Live Site URL: [https://fr-mentor-todo-app.vercel.app/]()
+- Solution URL: [TodoApp](https://www.frontendmentor.io/solutions/simple-and-convenient-todo-list-react-js-M6estrBP2L)
+- Live Site URL: [Site](https://fr-mentor-todo-app.vercel.app/)
 
 
 ### Built with
